@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/zzz-tracker/static/css/main.9720ffe2.chunk.css",
+    "main.js": "/zzz-tracker/static/js/main.4b7df18c.chunk.js",
+    "main.js.map": "/zzz-tracker/static/js/main.4b7df18c.chunk.js.map",
+    "runtime-main.js": "/zzz-tracker/static/js/runtime-main.1dcb3d60.js",
+    "runtime-main.js.map": "/zzz-tracker/static/js/runtime-main.1dcb3d60.js.map",
+    "static/js/2.626c4534.chunk.js": "/zzz-tracker/static/js/2.626c4534.chunk.js",
+    "static/js/2.626c4534.chunk.js.map": "/zzz-tracker/static/js/2.626c4534.chunk.js.map",
+    "static/js/3.f1631bbe.chunk.js": "/zzz-tracker/static/js/3.f1631bbe.chunk.js",
+    "static/js/3.f1631bbe.chunk.js.map": "/zzz-tracker/static/js/3.f1631bbe.chunk.js.map",
+    "index.html": "/zzz-tracker/index.html",
+    "static/css/main.9720ffe2.chunk.css.map": "/zzz-tracker/static/css/main.9720ffe2.chunk.css.map",
+    "static/js/2.626c4534.chunk.js.LICENSE.txt": "/zzz-tracker/static/js/2.626c4534.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1dcb3d60.js",
+    "static/js/2.626c4534.chunk.js",
+    "static/css/main.9720ffe2.chunk.css",
+    "static/js/main.4b7df18c.chunk.js"
+  ]
+}
