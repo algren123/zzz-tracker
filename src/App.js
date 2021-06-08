@@ -13,7 +13,7 @@ import Homepage from './components/homepage/homepage';
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <Router basename="/zzz-tracker">
         <Switch>
           <Route path="/" exact>
             <SplashScreen />

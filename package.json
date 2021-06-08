@@ -2,7 +2,7 @@
   "name": "daily-sleep-tracker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://algren123.github.io/zzz-tracker",
+  "homepage": "https://algren123.github.io/zzz-tracker",
   "dependencies": {
     "@craco/craco": "^6.1.2",
     "@tailwindcss/forms": "^0.3.3",
