@@ -11,6 +11,7 @@ import Login from './components/login-page/login';
 import Homepage from './components/homepage/homepage';
 
 function App() {
+  localStorage.setItem('theme', 'light');
   return (
     <AuthProvider>
       <Router basename="/zzz-tracker">
