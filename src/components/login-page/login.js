@@ -17,8 +17,7 @@ const Login = ({ history }) => {
                 await app
                     .auth()
                     .signInWithEmailAndPassword(email.value, password.value);
-                history.push('/');
-                window.location.href = '/home';
+                history.push('/home');
             } catch(error) {
                 alert(error);
             }

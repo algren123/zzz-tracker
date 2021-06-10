@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Navbar from '../navbar/navbar';
 import TextField from '@material-ui/core/TextField';
 import './homepage.css';
@@ -6,6 +7,26 @@ import useDarkMode from '../../services/useDarkMode';
 
 export default function Homepage() {
     const [displayModal, setDisplayModal] = useState(false);
+    const [sleepDate, setSleepDate] = useState('');
+    const [asleepTime, setAsleepTime] = useState('');
+    const [wakeupTime, setWakeupTime] = useState('');
+
+    const [sleepArray, setSleepArray] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:3001/read')
+            .then((response) => {
+                setSleepArray(response.data);
+            })
+    }, []);
+
+    const addSleepEntry = () => {
+        axios.post('http://localhost:3001/add', {
+            sleepDate: sleepDate,
+            asleepTime: asleepTime,
+            wakeupTime: wakeupTime
+        });
+    };
 
     useDarkMode();
 
@@ -22,13 +43,14 @@ export default function Homepage() {
                 {/* Date Selection */}
                 <div className="p-10 lg:p-24 bg-gray-200 dark:bg-gray-700 transition duration-500 rounded w-min mx-auto">
                     <div className="mx-auto text-center align-middle w-64">
-                    <form>
+                    <div>
                         <label htmlFor="date" className="font-bold text-black dark:text-white transition duration-500"> Select the date
                         <TextField
                             id="date"
                             type="date"
                             className="w-60"
                             defaultValue={new Date().toISOString().slice(0, 10)}
+                            onChange={(event) => {setSleepDate(event.target.value)}}
                             required
                         />
                         </label>
@@ -38,6 +60,7 @@ export default function Homepage() {
                             type="time"
                             className="w-60"
                             defaultValue="22:00"
+                            onChange={(event) => {setAsleepTime(event.target.value)}}
                             required
                         />
                         </label>
@@ -47,13 +70,27 @@ export default function Homepage() {
                             type="time"
                             className="w-60"
                             defaultValue="06:00"
+                            onChange={(event) => {setWakeupTime(event.target.value)}}
                             required
                         />
                         </label>
-                        <button type="submit" className="font-bold bg-yellow-400 hover:bg-yellow-500 w-60 p-2 rounded transition-all duration-300">Submit</button>
-                    </form>
+                        <button onClick={addSleepEntry} className="font-bold bg-yellow-400 hover:bg-yellow-500 w-60 p-2 rounded transition-all duration-300">Submit</button>
+                    </div>
                     </div>
                 </div>
+            </div>
+            <div className="text-center">
+               <h1>Zzz Entries</h1>
+
+               {sleepArray.map((val, key) => {
+                   return (
+                   <div className="text-center" key={key}>
+                    <h1> {val.sleepDate} </h1>
+                    <h1> {val.asleepTime} </h1>
+                    <h1> {val.wakeupTime} </h1>
+                   </div>
+                   )
+               })}
             </div>
             { /* If user doesn't have any entries, show message */}
         </div>
