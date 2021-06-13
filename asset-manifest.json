@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/zzz-tracker/static/css/main.7a14a042.chunk.css",
-    "main.js": "/zzz-tracker/static/js/main.f019e71f.chunk.js",
-    "main.js.map": "/zzz-tracker/static/js/main.f019e71f.chunk.js.map",
+    "main.js": "/zzz-tracker/static/js/main.5b98561e.chunk.js",
+    "main.js.map": "/zzz-tracker/static/js/main.5b98561e.chunk.js.map",
     "runtime-main.js": "/zzz-tracker/static/js/runtime-main.ab03281f.js",
     "runtime-main.js.map": "/zzz-tracker/static/js/runtime-main.ab03281f.js.map",
     "static/js/2.81237cb9.chunk.js": "/zzz-tracker/static/js/2.81237cb9.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.ab03281f.js",
     "static/js/2.81237cb9.chunk.js",
     "static/css/main.7a14a042.chunk.css",
-    "static/js/main.f019e71f.chunk.js"
+    "static/js/main.5b98561e.chunk.js"
   ]
 }
