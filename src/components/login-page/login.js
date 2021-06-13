@@ -31,7 +31,7 @@ const Login = ({ history }) => {
     }
 
     return (
-        <div id="background" className="h-screen bg-gray-100 dark:bg-gray-900 transition duration-500">
+        <div id="background" className="h-screen bg-gray-100 dark:bg-gray-900 transition duration-500 splash-screen dark:splash-screen-dark">
           <Navbar />
           <div className="mx-auto text-center align-middle w-min pt-32 flex">
             <div className="p-10 lg:p-24 bg-gray-200 dark:bg-gray-700 transition duration-500 rounded">

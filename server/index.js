@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
 const cors = require('cors');
+const app = express();
 
 const SleepModel = require('./models/Sleep');
 
@@ -41,6 +41,13 @@ app.get('/read', async (req, res) => {
     res.send(result);
    });
 });
+
+app.get('/:id', (req, res) => {
+    const id = req.params.id;
+    SleepModel.findById(id, (err, sleepEntry) => {
+        res.json(sleepEntry);
+    })
+})
 
 app.listen(3001, () => {
     console.log('Server running on port 3001...');

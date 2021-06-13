@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://algren123.github.io/zzz-tracker",
   "dependencies": {
+    "@angular/fire": "^6.1.5",
     "@craco/craco": "^6.1.2",
     "@material-ui/core": "^4.11.4",
     "@tailwindcss/forms": "^0.3.3",
@@ -11,15 +12,18 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
-    "firebase": "^8.6.5",
+    "firebase": "^8.6.7",
+    "firebase-admin": "^9.9.0",
     "flatpickr": "^4.6.9",
     "gh-pages": "^3.2.0",
     "gsap": "^3.6.1",
+    "moment": "^2.29.1",
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

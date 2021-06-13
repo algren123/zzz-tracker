@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const SleepSchema = new mongoose.Schema({
     sleepDate: {

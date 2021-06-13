@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function useDarkMode() {
     const [theme, setTheme] = useState(localStorage.theme);
@@ -10,14 +10,6 @@ export default function useDarkMode() {
 
         root.classList.remove(colorTheme);
         root.classList.add(theme);
-
-        if (backgroundImage && root.classList.contains('dark')) {
-            backgroundImage.classList.add('splash-screen-dark');
-            backgroundImage.classList.remove('splash-screen');
-        } else if (backgroundImage && root.classList.contains('light')) {
-            backgroundImage.classList.add('splash-screen');
-            backgroundImage.classList.remove('splash-screen-dark');
-        }
 
         localStorage.setItem('theme', theme);
     }, [theme, colorTheme]);

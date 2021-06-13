@@ -17,7 +17,7 @@ function App() {
   
   return (
     <AuthProvider>
-      <Router basename="/zzz-tracker">
+      <Router basename="/">
         <Switch>
           <Route path="/" exact>
             <SplashScreen />

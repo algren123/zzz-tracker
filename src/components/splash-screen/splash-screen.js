@@ -3,7 +3,6 @@ import './splash-screen.scss';
 import {TweenMax, Power3} from 'gsap';
 import { Link } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
-import useDarkMode from '../../services/useDarkMode';
 
 function SplashScreen() {
     let jumbotronItem = useRef(null);
@@ -27,7 +26,7 @@ function SplashScreen() {
     }, [])
 
     return(
-			<div id="background" className="h-screen transition-all duration-500">
+			<div id="background" className="h-screen transition-all duration-500 splash-screen dark:splash-screen-dark">
 			<Navbar />
 				<div 
 					className="jumbotron text-center py-48 lg:py-72 transition-all duration-500">
