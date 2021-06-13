@@ -88,7 +88,7 @@ function Navbar() {
 
       <Link to="/" href="#" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</Link>
 
-      <Link to={currentUser ? '/home' : '/'} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</Link>
+      <Link to={currentUser ? '/home' : '/zzz-tracker/'} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</Link>
 
     </div>
   </div>
