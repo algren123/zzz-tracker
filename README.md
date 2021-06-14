@@ -2,7 +2,7 @@
 
 #Daily Sleep Tracker
 
-LIVE LINK: https://dashboard.heroku.com/
+LIVE LINK: https://zzz-tracker.herokuapp.com/
 
 A CRD (the "U" wasn't needed in this app, but I commented the update code in the file in case anyone else needs some inspiration) app that serves the function of being a Daily Sleep Tracker. The technologies used are the following:
 
