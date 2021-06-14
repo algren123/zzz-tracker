@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/zzz-tracker/static/css/main.7a14a042.chunk.css",
-    "main.js": "/zzz-tracker/static/js/main.aa977097.chunk.js",
-    "main.js.map": "/zzz-tracker/static/js/main.aa977097.chunk.js.map",
-    "runtime-main.js": "/zzz-tracker/static/js/runtime-main.ab03281f.js",
-    "runtime-main.js.map": "/zzz-tracker/static/js/runtime-main.ab03281f.js.map",
-    "static/js/2.81237cb9.chunk.js": "/zzz-tracker/static/js/2.81237cb9.chunk.js",
-    "static/js/2.81237cb9.chunk.js.map": "/zzz-tracker/static/js/2.81237cb9.chunk.js.map",
-    "static/js/3.64e31c56.chunk.js": "/zzz-tracker/static/js/3.64e31c56.chunk.js",
-    "static/js/3.64e31c56.chunk.js.map": "/zzz-tracker/static/js/3.64e31c56.chunk.js.map",
+    "main.css": "/zzz-tracker/static/css/main.28f06570.chunk.css",
+    "main.js": "/zzz-tracker/static/js/main.d7e5a18f.chunk.js",
+    "main.js.map": "/zzz-tracker/static/js/main.d7e5a18f.chunk.js.map",
+    "runtime-main.js": "/zzz-tracker/static/js/runtime-main.03c66af3.js",
+    "runtime-main.js.map": "/zzz-tracker/static/js/runtime-main.03c66af3.js.map",
+    "static/css/2.b06f8ba7.chunk.css": "/zzz-tracker/static/css/2.b06f8ba7.chunk.css",
+    "static/js/2.0752025f.chunk.js": "/zzz-tracker/static/js/2.0752025f.chunk.js",
+    "static/js/2.0752025f.chunk.js.map": "/zzz-tracker/static/js/2.0752025f.chunk.js.map",
+    "static/js/3.e59abff6.chunk.js": "/zzz-tracker/static/js/3.e59abff6.chunk.js",
+    "static/js/3.e59abff6.chunk.js.map": "/zzz-tracker/static/js/3.e59abff6.chunk.js.map",
     "index.html": "/zzz-tracker/index.html",
-    "static/css/main.7a14a042.chunk.css.map": "/zzz-tracker/static/css/main.7a14a042.chunk.css.map",
-    "static/js/2.81237cb9.chunk.js.LICENSE.txt": "/zzz-tracker/static/js/2.81237cb9.chunk.js.LICENSE.txt"
+    "static/css/2.b06f8ba7.chunk.css.map": "/zzz-tracker/static/css/2.b06f8ba7.chunk.css.map",
+    "static/css/main.28f06570.chunk.css.map": "/zzz-tracker/static/css/main.28f06570.chunk.css.map",
+    "static/js/2.0752025f.chunk.js.LICENSE.txt": "/zzz-tracker/static/js/2.0752025f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ab03281f.js",
-    "static/js/2.81237cb9.chunk.js",
-    "static/css/main.7a14a042.chunk.css",
-    "static/js/main.aa977097.chunk.js"
+    "static/js/runtime-main.03c66af3.js",
+    "static/css/2.b06f8ba7.chunk.css",
+    "static/js/2.0752025f.chunk.js",
+    "static/css/main.28f06570.chunk.css",
+    "static/js/main.d7e5a18f.chunk.js"
   ]
 }
