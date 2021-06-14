@@ -86,7 +86,7 @@ function Dashboard() {
                             return {x: entry.sleepDate, y: parseInt(entry.totalSlept)}
                         })}
                         style={{strokeWidth: 6}}
- />
+                        />
 
                     </XYPlot>
                 </div>
