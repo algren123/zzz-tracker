@@ -80,7 +80,7 @@ function Navbar() {
         </svg>
       }
         New Entry</Link>
-        <button onClick={() => {app.auth().signOut(); window.location.replace("/zzz-tracker")}} id="logout" className="bg-gray-500 dark:bg-gray-900 text-white px-3 hover:bg-gray-900 py-2 rounded-md text-sm font-medium transition duration-500 hidden" aria-current="page">Logout</button>
+        <button onClick={() => {app.auth().signOut(); window.location.href = ("/zzz-tracker")}} id="logout" className="bg-gray-500 dark:bg-gray-900 text-white px-3 hover:bg-gray-900 py-2 rounded-md text-sm font-medium transition duration-500 hidden" aria-current="page">Logout</button>
       </div>
     </div>
   </div>

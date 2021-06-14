@@ -1,4 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 import '../../../node_modules/react-vis/dist/style.css';
 import {XYPlot, LineSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis} from 'react-vis';
@@ -68,6 +69,7 @@ function Dashboard() {
     }
 
     return (
+        sleepArray.length > 0 ?
         <div className="h-screen splash-screen dark:splash-screen-dark transition duration-500">
             <Navbar />
             <div className="text-center">
@@ -101,6 +103,14 @@ function Dashboard() {
                 </div>
             </div>
             
+        </div>
+        :
+        <div className="h-screen splash-screen dark:splash-screen-dark transition duration-500">
+            <Navbar />
+            <div className="text-center">
+                <h1 className="font-bold text-3xl lg:text-5xl my-8 text-black dark:text-white transition-all duration-500">Your Dashboard</h1>
+                <h1 className="font-bold text-3xl lg:text-5xl mt-48 text-black dark:text-white transition-all duration-500">You don't have any entries yet, <Link to="/entries" className="text-yellow-500">click here</Link> to add some</h1>
+            </div>
         </div>
     )
 }
