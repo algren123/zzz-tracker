@@ -4,8 +4,6 @@ import '../../../node_modules/react-vis/dist/style.css';
 import {XYPlot, LineSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis} from 'react-vis';
 import app from '../../firebase/base.js';
 import { AuthContext } from '../auth/auth.js';
-import moment from 'moment';
-
 
 function Dashboard() {
     const { currentUser } = useContext(AuthContext);
@@ -76,26 +74,29 @@ function Dashboard() {
                 <h1 className="font-bold text-3xl lg:text-5xl my-8 text-black dark:text-white transition-all duration-500">Your Dashboard</h1>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto my-32">
-                <div className='justify-center text-center bg-gray-400 dark:bg-gray-600 opacity-80 w-3/4 py-5 mx-auto rounded-md transition-all duration-500'>
+                <div className='justify-center text-center bg-gray-400 dark:bg-gray-700 text-black dark:text-white opacity-80 w-3/4 py-5 mx-auto rounded-md transition-all duration-500'>
                     <h1 className="text-3xl font-bold mb-3">Graph</h1>
-                    <XYPlot className="mx-auto" height={400} width= {600} xType="ordinal" yDomain={[1, 12]}>
-                        <XAxis />
-                        <YAxis />
+                    <XYPlot className="mx-auto" height={400} width= {600} xType="ordinal" yDomain={[1, 12]} stroke="orange">
+                        <XAxis style={{fontSize: 13, fontWeight: 'bold', color: 'black'}} />
+                        <YAxis style={{fontSize: 16, fontWeight: 'bold'}} />
                         <VerticalGridLines />
                         <HorizontalGridLines />
-                        <LineSeries data={sleepArray.map((entry) => {
+                        <LineSeries 
+                        data={sleepArray.map((entry) => {
                             return {x: entry.sleepDate, y: parseInt(entry.totalSlept)}
-                        })} />
+                        })}
+                        style={{strokeWidth: 6}}
+ />
 
                     </XYPlot>
                 </div>
                 <div className="text-center justify-center w-4/5 mx-auto">
-                    <div className="bg-gray-400 opacity-80 rounded-lg py-5" style={{height: 500}}>
+                    <div className="bg-gray-400 dark:bg-gray-700 opacity-80 rounded-lg py-5 text-black dark:text-white transition-all duration-500" style={{height: 500}}>
                         <h1 className="text-3xl font-bold mb-3">Stats</h1>
                         <h1 className="text-xl font-bold my-5">Your average sleep time: {averageSleepTime} Hours</h1>
                         <h1 className="text-xl font-bold my-5">Number of days with less than 6 hours sleep: {less6Hours}</h1>
                         <h1 className="text-xl font-bold my-5">Number of days with more than 8 hours sleep: {more8Hours}</h1>
-                        <h1 className="text-3xl font-bold mt-24">{averageSleepTime < 7 ? "You should sleep more. Healthy adults need between 7 and 9 hours of sleep" : averageSleepTime > 9 ? 'You sleep too much. Healthy adults need between 7 and 9 hours of sleep' : 'You are on track! Keep it up.'}</h1>
+                        <h1 className="text-3xl font-bold mt-24 mx-5">{averageSleepTime < 7 ? "You should sleep more. Healthy adults need between 7 and 9 hours of sleep" : averageSleepTime > 9 ? 'You sleep too much. Healthy adults need between 7 and 9 hours of sleep' : 'You are having the recommended amount of sleep. Keep it up!'}</h1>
                     </div>
                 </div>
             </div>
