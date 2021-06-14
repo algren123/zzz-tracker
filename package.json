@@ -2,7 +2,7 @@
   "name": "daily-sleep-tracker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://algren123.github.io/zzz-tracker",
+  "homepage": "https://zzz-tracker.herokuapp.com/",
   "dependencies": {
     "@angular/fire": "^6.1.5",
     "@craco/craco": "^6.1.2",
