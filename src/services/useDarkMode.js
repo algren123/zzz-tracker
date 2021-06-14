@@ -6,7 +6,6 @@ export default function useDarkMode() {
 
     useEffect(() => {
         const root = window.document.documentElement;
-        const backgroundImage = window.document.getElementById('background');
 
         root.classList.remove(colorTheme);
         root.classList.add(theme);

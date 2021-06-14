@@ -1,10 +1,14 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState, useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 import './splash-screen.scss';
 import {TweenMax, Power3} from 'gsap';
 import { Link } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
+import { AuthContext } from '../auth/auth';
 
 function SplashScreen() {
+	const { currentUser } = useContext(AuthContext);
+
     let jumbotronItem = useRef(null);
 
 		const [colorTheme, setTheme] = useState(localStorage.theme);
@@ -24,6 +28,10 @@ function SplashScreen() {
             }
         );
     }, [])
+
+	if (currentUser) {
+		return <Redirect to="/entries" />
+	}
 
     return(
 			<div id="background" className="h-screen transition-all duration-500 splash-screen dark:splash-screen-dark">

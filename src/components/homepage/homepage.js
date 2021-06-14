@@ -23,6 +23,8 @@ export default function Homepage() {
     function getSleepData() {
         ref
             .where('owner', '==', currentUserId)
+            .orderBy('sleepDate', 'desc')
+            .orderBy('asleepTime', 'desc')
             .onSnapshot((querySnapshot) => {
             const items = [];
             querySnapshot.forEach((doc) => {
@@ -74,8 +76,23 @@ export default function Homepage() {
             });
     };
 
+    // Reset the sleep entry
+    function resetEntry() {
+        let date = document.getElementById('date');
+        let asleep = document.getElementById('asleep');
+        let wakeup = document.getElementById('wakeup');
+
+        date.value = new Date().toISOString().slice(0, 10);
+        asleep.value = '22:00';
+        wakeup.value = '06:00';
+
+        setSleepDate('');
+        setAsleepTime('');
+        setWakeupTime('');
+    }
+
     // Get total sleep time
-    function getTimeDiff(asleepTime, wakeupTime) {
+    function getTimeDiff(asleepTime, wakeupTime, entry) {
         // hours
         let asleepHour = parseInt(new Date("01/01/2007 " + asleepTime).getTime());
         let wakeupHour = parseInt(new Date("01/01/2007 " + wakeupTime).getTime());
@@ -91,6 +108,10 @@ export default function Homepage() {
         let duration = moment.duration(totalSleepDecimal, 'hours');
         let result = `${duration._data.hours < 10 ? '0' + duration._data.hours : duration._data.hours}:${duration._data.minutes < 10 ? '0' + duration._data.minutes : duration._data.minutes}`
         
+        ref.doc(entry.id).update({
+            totalSlept: result
+        }).catch((err) => {console.error(err);})
+
         return result;
 
     }
@@ -113,7 +134,7 @@ export default function Homepage() {
                 {/* Date Selection */}
                 <div className="p-10 lg:p-24 bg-gray-200 dark:bg-gray-700 transition duration-500 rounded w-min mx-auto">
                     <div className="mx-auto text-center align-middle w-64">
-                    <div className="dark:MuiInputBase-root-dark">
+                    <div>
                         <label htmlFor="date" className="font-bold text-black dark:text-white transition duration-500"> Select the date
                         <TextField
                             id="date"
@@ -144,9 +165,14 @@ export default function Homepage() {
                             required
                         />
                         </label>
-                        <button
-                        onClick={() => addSleepEntry()}
-                        className="font-bold bg-yellow-400 hover:bg-yellow-500 w-60 p-2 rounded transition-all duration-300">Submit</button>
+                        <div className="flex">
+                            <button
+                            onClick={() => resetEntry()}
+                            className="font-bold bg-gray-300 dark:bg-gray-900 m-auto px-5 hover:bg-gray-400 dark:hover:bg-gray-600 py-2 rounded transition-all duration-300">Reset</button>
+                            <button
+                            onClick={() => addSleepEntry()}
+                            className="font-bold bg-yellow-400 m-auto px-4 hover:bg-yellow-500 py-2 rounded transition-all duration-300">Submit</button>
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -155,10 +181,10 @@ export default function Homepage() {
                <h1 className="text-3xl font-bold text-black dark:text-white my-5 transition duration-500">{sleepArray.length !== 0 ? 'Your Sleep Entries' : "You haven't added any entries yet, you can add one by clicking the button above"}</h1>
                 {sleepArray.map((entry) => (
                     <div className="flex text-xs md:text-lg text-black dark:text-white justify-center bg-gray-200 dark:bg-yellow-600 w-full lg:w-1/2 py-2 my-3 mx-auto transition duration-500 rounded md:rounded-full overflow-auto" key={entry.id}>
-                        <h1 className="mx-2 lg:mx-5">Date: <span className="font-bold">{entry.sleepDate}</span></h1>
+                        <h1 className="mx-2 lg:mx-5"><span className="font-bold">{entry.sleepDate}</span></h1>
                         <h1 className="mx-2 lg:mx-5">Asleep time: <span className="font-bold">{entry.asleepTime}</span></h1>
                         <h1 className="mx-2 lg:mx-5">Wakeup time: <span className="font-bold">{entry.wakeupTime}</span></h1>
-                        <h1 className="mx-2 lg:mx-5">Total sleep time: <span className="font-bold">{getTimeDiff(entry.asleepTime, entry.wakeupTime)}</span></h1>
+                        <h1 className="mx-2 lg:mx-5"><span className="font-bold">{getTimeDiff(entry.asleepTime, entry.wakeupTime, entry)} Hours Slept</span></h1>
                         <span className="cursor-pointer my-auto hover:text-red-600 mr-2" onClick={() => {deleteSleepEntry(entry)}}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />

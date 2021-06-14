@@ -44,9 +44,11 @@ function Navbar() {
         <div className="hidden sm:block sm:ml-6">
           <div className="flex space-x-4">
             
-            <Link to={currentUser ? '/home' : '/'} className="bg-gray-500 dark:bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500" aria-current="page">Home</Link>
+            <Link to={currentUser ? '/dashboard' : '/'} className="bg-gray-500 dark:bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500" aria-current="page">{currentUser ? "Dashboard" : "Home"}</Link>
 
-            <a href="#" className="text-gray-500 dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500">About</a>
+            <Link to={currentUser ? '/home' : '/'} className="text-gray-500 dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500">About</Link>
+
+            <Link to={currentUser ? '/entries' : '/'} className={`text-gray-500 dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500 ${currentUser ? 'block' : 'hidden'}`}>Entries</Link>
 
           </div>
         </div>
@@ -66,7 +68,7 @@ function Navbar() {
         </span>
         <Link to='/login' id="login" className="bg-gray-500 dark:bg-gray-900 text-white px-3 hover:bg-gray-900 py-2 rounded-md text-sm font-medium mr-3 transition duration-500" aria-current="page">Sign In</Link>
         {<Link to='/signup' id="signup" className="hidden bg-yellow-600 text-white px-3 hover:bg-yellow-700 py-2 rounded-md text-sm font-medium" aria-current="page">Sign Up</Link>}
-        <Link to='#' id="newEntry" className="bg-yellow-600 text-white px-3 hover:bg-yellow-700 flex py-2 rounded-md text-sm font-medium hidden mr-3 transition duration-500" aria-current="page">
+        <Link to='/entries' id="newEntry" className="bg-yellow-600 text-white px-3 hover:bg-yellow-700 flex py-2 rounded-md text-sm font-medium hidden mr-3 transition duration-500" aria-current="page">
         { colorTheme === 'light' ?
       
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
@@ -86,10 +88,11 @@ function Navbar() {
   <div id="mobile-menu" className={showing ? 'block' : 'hidden'}>
     <div className="px-2 pt-2 pb-3 space-y-1">
 
-      <Link to="/" href="#" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</Link>
+      <Link to={currentUser ? '/dashboard' : '/'} href="#" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">{currentUser ? "Dashboard" : "Home"}</Link>
 
-      <Link to={currentUser ? '/home' : '/zzz-tracker/'} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</Link>
+      <Link to={currentUser ? '/home' : '/'} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</Link>
 
+      <Link to={currentUser ? '/entries' : '/'} className={`text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium ${currentUser ? 'block' : 'hidden'}`}>Entries</Link>
     </div>
   </div>
 </nav>

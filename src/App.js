@@ -9,6 +9,7 @@ import Signup from './components/signup-page/signup';
 import { AuthProvider } from './components/auth/auth.js';
 import Login from './components/login-page/login';
 import Homepage from './components/homepage/homepage';
+import Dashboard from './components/dashboard/dashboard';
 
 function App() {
   if (localStorage.getItem('theme') === null) {
@@ -20,16 +21,19 @@ function App() {
       <Router basename="/zzz-tracker">
         <Switch>
           <Route path="/" exact>
-            <SplashScreen />
+            {<SplashScreen />}
           </Route>
-          <Route path="/signup" component={Signup}>
+          <Route path="/signup">
             <Signup />
           </Route>
-          <Route path="/login" component={Login}>
+          <Route path="/login">
             <Login />
           </Route>
-          <Route path="/home" component={Homepage}>
+          <Route path="/entries">
             <Homepage />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
           </Route>
         </Switch>
       </Router>
