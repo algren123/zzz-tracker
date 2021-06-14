@@ -2,7 +2,7 @@ import './App.css';
 import SplashScreen from './components/splash-screen/splash-screen';
 import {
   BrowserRouter as Router,
-  Switch,
+  HashRouter,
   Route,
 } from "react-router-dom";
 import Signup from './components/signup-page/signup';
@@ -19,7 +19,7 @@ function App() {
   return (
     <AuthProvider>
       <Router basename="/zzz-tracker">
-        <Switch>
+        <HashRouter>
           <Route path="/" exact>
             {<SplashScreen />}
           </Route>
@@ -35,7 +35,7 @@ function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-        </Switch>
+        </HashRouter>
       </Router>
     </AuthProvider>
     

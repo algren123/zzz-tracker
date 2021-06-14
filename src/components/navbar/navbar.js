@@ -44,11 +44,11 @@ function Navbar() {
         <div className="hidden sm:block sm:ml-6">
           <div className="flex space-x-4">
             
-            <Link to={currentUser ? '/dashboard' : '/'} className="bg-gray-500 dark:bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500" aria-current="page">{currentUser ? "Dashboard" : "Home"}</Link>
+            <Link to={currentUser ? '/dashboard' : '/'} className={`${window.location.href.includes('dashboard') ? 'bg-gray-500 text-white' : 'text-gray-500 dark:text-gray-300'} hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500`} aria-current="page">{currentUser ? "Dashboard" : "Home"}</Link>
 
             <Link to={currentUser ? '/home' : '/'} className="text-gray-500 dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500">About</Link>
 
-            <Link to={currentUser ? '/entries' : '/'} className={`text-gray-500 dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500 ${currentUser ? 'block' : 'hidden'}`}>Entries</Link>
+            <Link to={currentUser ? '/entries' : '/'} className={` ${window.location.href.includes('entries') ? 'bg-gray-500 text-white' : 'text-gray-500 dark:text-gray-300'} hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500 ${currentUser ? 'block' : 'hidden'}`}>Entries</Link>
 
           </div>
         </div>
