@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/zzz-tracker/static/css/main.28f06570.chunk.css",
-    "main.js": "/zzz-tracker/static/js/main.0ca1a3ac.chunk.js",
-    "main.js.map": "/zzz-tracker/static/js/main.0ca1a3ac.chunk.js.map",
+    "main.js": "/zzz-tracker/static/js/main.b57d9b46.chunk.js",
+    "main.js.map": "/zzz-tracker/static/js/main.b57d9b46.chunk.js.map",
     "runtime-main.js": "/zzz-tracker/static/js/runtime-main.03c66af3.js",
     "runtime-main.js.map": "/zzz-tracker/static/js/runtime-main.03c66af3.js.map",
     "static/css/2.b06f8ba7.chunk.css": "/zzz-tracker/static/css/2.b06f8ba7.chunk.css",
-    "static/js/2.b121f6bb.chunk.js": "/zzz-tracker/static/js/2.b121f6bb.chunk.js",
-    "static/js/2.b121f6bb.chunk.js.map": "/zzz-tracker/static/js/2.b121f6bb.chunk.js.map",
+    "static/js/2.482500ef.chunk.js": "/zzz-tracker/static/js/2.482500ef.chunk.js",
+    "static/js/2.482500ef.chunk.js.map": "/zzz-tracker/static/js/2.482500ef.chunk.js.map",
     "static/js/3.e59abff6.chunk.js": "/zzz-tracker/static/js/3.e59abff6.chunk.js",
     "static/js/3.e59abff6.chunk.js.map": "/zzz-tracker/static/js/3.e59abff6.chunk.js.map",
     "index.html": "/zzz-tracker/index.html",
     "static/css/2.b06f8ba7.chunk.css.map": "/zzz-tracker/static/css/2.b06f8ba7.chunk.css.map",
     "static/css/main.28f06570.chunk.css.map": "/zzz-tracker/static/css/main.28f06570.chunk.css.map",
-    "static/js/2.b121f6bb.chunk.js.LICENSE.txt": "/zzz-tracker/static/js/2.b121f6bb.chunk.js.LICENSE.txt"
+    "static/js/2.482500ef.chunk.js.LICENSE.txt": "/zzz-tracker/static/js/2.482500ef.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.03c66af3.js",
     "static/css/2.b06f8ba7.chunk.css",
-    "static/js/2.b121f6bb.chunk.js",
+    "static/js/2.482500ef.chunk.js",
     "static/css/main.28f06570.chunk.css",
-    "static/js/main.0ca1a3ac.chunk.js"
+    "static/js/main.b57d9b46.chunk.js"
   ]
 }
