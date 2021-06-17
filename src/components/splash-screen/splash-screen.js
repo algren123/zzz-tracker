@@ -30,7 +30,8 @@ function SplashScreen() {
     }, [])
 
 	if (currentUser) {
-		return <Redirect to="/entries" />
+		console.log(currentUser);
+		return <Redirect to="/dashboard" />
 	}
 
     return(

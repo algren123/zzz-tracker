@@ -7,6 +7,7 @@ import useDarkMode from '../../services/useDarkMode';
 import { v4 as uuidv4} from 'uuid';
 import { AuthContext } from '../auth/auth';
 import moment from 'moment';
+import Swal from 'sweetalert2';
 
 export default function Homepage() {
     const { currentUser } = useContext(AuthContext);
@@ -54,8 +55,24 @@ export default function Homepage() {
             // lastUpdate: app.firestore.FieldValue.serverTimestamp(),
         };
 
-        if ((sleepDate === '') || (asleepTime === '') || (wakeupTime === '')) {
-            alert('Please fill in the whole form');
+        if (sleepDate === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Enter the sleep date'
+            })
+        } else if (asleepTime === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Enter the time you went to sleep'
+            })
+        } else if (wakeupTime === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Enter the time you woke up'
+            })
         } else {
             ref
             .doc(newSleepEntry.id)
@@ -63,6 +80,12 @@ export default function Homepage() {
             .catch((err) => {
                 console.error(err);
             });
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Your sleep entry has been added'
+            })
         };
     }
 
@@ -119,7 +142,7 @@ export default function Homepage() {
     useDarkMode();
 
     return (
-        <div id="background" className={`bg-gray-100 dark:bg-gray-900 pb-3 splash-screen dark:splash-screen-dark transition duration-500 ${displayModal && sleepArray.length > 2 ? 'h-full' : 'h-screen'}`}>
+        <div id="background" className={`bg-gray-100 dark:bg-gray-900 pb-3 splash-screen dark:splash-screen-dark transition duration-500 ${(displayModal && sleepArray.length > 2) || (sleepArray.length > 12) ? 'h-full' : 'h-screen'}`}>
             <Navbar />
             <div className="flex justify-center">
                 <button onClick={() => {setDisplayModal(!displayModal)}} 
@@ -140,7 +163,6 @@ export default function Homepage() {
                             id="date"
                             type="date"
                             className="w-60"
-                            defaultValue={new Date().toISOString().slice(0, 10)}
                             onChange={(event) => {setSleepDate(event.target.value)}}
                             required
                         />
@@ -150,7 +172,6 @@ export default function Homepage() {
                             id="asleep"
                             type="time"
                             className="w-60"
-                            defaultValue="22:00"
                             onChange={(event) => {setAsleepTime(event.target.value)}}
                             required
                         />
@@ -160,7 +181,6 @@ export default function Homepage() {
                             id="wakeup"
                             type="time"
                             className="w-60"
-                            defaultValue="06:00"
                             onChange={(event) => {setWakeupTime(event.target.value)}}
                             required
                         />
@@ -168,7 +188,7 @@ export default function Homepage() {
                         <div className="flex">
                             <button
                             onClick={() => resetEntry()}
-                            className="font-bold bg-gray-300 dark:bg-gray-900 m-auto px-5 hover:bg-gray-400 dark:hover:bg-gray-600 py-2 rounded transition-all duration-300">Reset</button>
+                            className="font-bold bg-gray-300 dark:bg-gray-500 m-auto px-5 hover:bg-gray-400 dark:hover:bg-gray-600 py-2 rounded transition-all duration-300">Reset</button>
                             <button
                             onClick={() => addSleepEntry()}
                             className="font-bold bg-yellow-400 m-auto px-4 hover:bg-yellow-500 py-2 rounded transition-all duration-300">Submit</button>
@@ -180,8 +200,8 @@ export default function Homepage() {
             <div className="mx-10 text-center">
                <h1 className="text-3xl font-bold text-black dark:text-white my-5 transition duration-500">{sleepArray.length !== 0 ? 'Your Sleep Entries' : "You haven't added any entries yet, you can add one by clicking the button above"}</h1>
                 {sleepArray.map((entry) => (
-                    <div className="flex text-xs md:text-lg text-black dark:text-white justify-center bg-gray-200 dark:bg-yellow-600 w-full lg:w-1/2 py-2 my-3 mx-auto transition duration-500 rounded md:rounded-full overflow-auto" key={entry.id}>
-                        <h1 className="mx-2 lg:mx-5"><span className="font-bold">{entry.sleepDate}</span></h1>
+                    <div className="flex text-xs md:text-lg text-black dark:text-white justify-center bg-gray-200 dark:bg-yellow-600 w-full lg:w-1/2 py-2 my-3 mx-auto opacity-90 transition duration-500 rounded md:rounded-full overflow-auto" key={entry.id}>
+                        <h1 className="mx-2 lg:mx-5 my-auto"><span className="font-bold">{entry.sleepDate}</span></h1>
                         <h1 className="mx-2 lg:mx-5">Asleep time: <span className="font-bold">{entry.asleepTime}</span></h1>
                         <h1 className="mx-2 lg:mx-5">Wakeup time: <span className="font-bold">{entry.wakeupTime}</span></h1>
                         <h1 className="mx-2 lg:mx-5"><span className="font-bold">{getTimeDiff(entry.asleepTime, entry.wakeupTime, entry)} Hours Slept</span></h1>

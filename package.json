@@ -24,6 +24,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-vis": "^1.11.7",
+    "sweetalert2": "^11.0.17",
+    "sweetalert2-react-content": "^4.0.1",
     "uuid": "^8.3.2",
     "web-vitals": "^1.1.2"
   },

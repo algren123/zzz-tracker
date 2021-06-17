@@ -10,6 +10,7 @@ import { AuthProvider } from './components/auth/auth.js';
 import Login from './components/login-page/login';
 import Homepage from './components/homepage/homepage';
 import Dashboard from './components/dashboard/dashboard';
+import About from './components/about/about';
 
 function App() {
   if (localStorage.getItem('theme') === null) {
@@ -18,7 +19,7 @@ function App() {
   
   return (
     <AuthProvider>
-      <Router basename="/zzz-tracker">
+      <Router>
         <HashRouter>
           <Route path="/" exact>
             {<SplashScreen />}
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/about">
+            <About />
           </Route>
         </HashRouter>
       </Router>

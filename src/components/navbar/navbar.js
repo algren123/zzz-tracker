@@ -46,7 +46,7 @@ function Navbar() {
             
             <Link to={currentUser ? '/dashboard' : '/'} className={`${window.location.href.includes('dashboard') ? 'bg-gray-500 text-white' : 'text-gray-500 dark:text-gray-300'} hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500`} aria-current="page">{currentUser ? "Dashboard" : "Home"}</Link>
 
-            <Link to={currentUser ? '/home' : '/'} className="text-gray-500 dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500">About</Link>
+            <Link to="/about" className="text-gray-500 dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500">About</Link>
 
             <Link to={currentUser ? '/entries' : '/'} className={` ${window.location.href.includes('entries') ? 'bg-gray-500 text-white' : 'text-gray-500 dark:text-gray-300'} hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500 ${currentUser ? 'block' : 'hidden'}`}>Entries</Link>
 
@@ -80,19 +80,19 @@ function Navbar() {
         </svg>
       }
         New Entry</Link>
-        <button onClick={() => {app.auth().signOut(); window.location.href = ("/zzz-tracker")}} id="logout" className="bg-gray-500 dark:bg-gray-900 text-white px-3 hover:bg-gray-900 py-2 rounded-md text-sm font-medium transition duration-500 hidden" aria-current="page">Logout</button>
+        <button onClick={() => {app.auth().signOut(); window.location.href = ("/")}} id="logout" className="bg-gray-500 dark:bg-gray-900 text-white px-3 hover:bg-gray-900 py-2 rounded-md text-sm font-medium transition duration-500 hidden" aria-current="page">Logout</button>
       </div>
     </div>
   </div>
 
-  <div id="mobile-menu" className={showing ? 'block' : 'hidden'}>
+  <div id="mobile-menu" className={`transition-all duration-200 ${showing ? 'visible h-auto opacity-100' : 'invisible h-0 opacity-0'}`}>
     <div className="px-2 pt-2 pb-3 space-y-1">
 
-      <Link to={currentUser ? '/dashboard' : '/'} href="#" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">{currentUser ? "Dashboard" : "Home"}</Link>
+      <Link to={currentUser ? '/dashboard' : '/'} href="#" className={`${window.location.href.includes('dashboard' || 'home') ? 'bg-gray-300 dark:bg-gray-700 dark:text-white' : 'text-gray-700 dark:text-gray-300'} block px-3 py-2 rounded-md text-base font-medium`} aria-current="page">{currentUser ? "Dashboard" : "Home"}</Link>
 
-      <Link to={currentUser ? '/home' : '/'} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</Link>
+      <Link to="/about" className={`${window.location.href.includes('about') ? 'bg-gray-300 dark:bg-gray-700 dark:text-white' : 'text-gray-700 dark:text-gray-300'} block px-3 py-2 rounded-md text-base font-medium`}>About</Link>
 
-      <Link to={currentUser ? '/entries' : '/'} className={`text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium ${currentUser ? 'block' : 'hidden'}`}>Entries</Link>
+      <Link to={currentUser ? '/entries' : '/'} className={`${window.location.href.includes('entries') ? 'bg-gray-300 dark:bg-gray-700 dark:text-white' : 'text-gray-700 dark:text-gray-300'} block px-3 py-2 rounded-md text-base font-medium ${currentUser ? 'block' : 'hidden'}`}>Entries</Link>
     </div>
   </div>
 </nav>

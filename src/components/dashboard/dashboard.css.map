@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACnB,MAAM,EAAE,KAAK;CAKd;;AAHC,MAAM,MAAM,MAAM,MAAM,SAAS,EAAE,KAAK;EAH1C,AAAA,oBAAoB,CAAC;IAIjB,MAAM,EAAE,KAAK;GAEhB",
+    "sources": [
+        "dashboard.scss"
+    ],
+    "names": [],
+    "file": "dashboard.css"
+}

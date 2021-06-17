@@ -1,0 +1,7 @@
+.dashboard-container {
+  height: 500px;
+
+  @media only screen and (max-width: 880px) {
+    height: 300px;
+  }
+}
