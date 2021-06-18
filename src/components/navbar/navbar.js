@@ -46,7 +46,7 @@ function Navbar() {
             
             <Link to={currentUser ? '/dashboard' : '/'} className={`${window.location.href.includes('dashboard') ? 'bg-gray-500 text-white' : 'text-gray-500 dark:text-gray-300'} hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500`} aria-current="page">{currentUser ? "Dashboard" : "Home"}</Link>
 
-            <Link to="/about" className="text-gray-500 dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500">About</Link>
+            <Link to="/about" className={` ${window.location.href.includes('about') ? 'bg-gray-500 text-white' : 'text-gray-500 dark:text-gray-300'} hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500`}>About</Link>
 
             <Link to={currentUser ? '/entries' : '/'} className={` ${window.location.href.includes('entries') ? 'bg-gray-500 text-white' : 'text-gray-500 dark:text-gray-300'} hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-500 ${currentUser ? 'block' : 'hidden'}`}>Entries</Link>
 

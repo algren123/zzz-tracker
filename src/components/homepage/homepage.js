@@ -8,6 +8,7 @@ import { v4 as uuidv4} from 'uuid';
 import { AuthContext } from '../auth/auth';
 import moment from 'moment';
 import Swal from 'sweetalert2';
+import Footer from '../footer/footer.js';
 
 export default function Homepage() {
     const { currentUser } = useContext(AuthContext);
@@ -26,6 +27,7 @@ export default function Homepage() {
             .where('owner', '==', currentUserId)
             .orderBy('sleepDate', 'desc')
             .orderBy('asleepTime', 'desc')
+            .limit(12)
             .onSnapshot((querySnapshot) => {
             const items = [];
             querySnapshot.forEach((doc) => {
@@ -142,65 +144,68 @@ export default function Homepage() {
     useDarkMode();
 
     return (
-        <div id="background" className={`bg-gray-100 dark:bg-gray-900 pb-3 splash-screen dark:splash-screen-dark transition duration-500 ${(displayModal && sleepArray.length > 2) || (sleepArray.length > 12) ? 'h-full' : 'h-screen'}`}>
+        <div id="background" className={`bg-gray-100 dark:bg-gray-900 splash-screen dark:splash-screen-dark transition duration-500 h-full md:h-screen`}>
             <Navbar />
-            <div className="flex justify-center">
-                <button onClick={() => {setDisplayModal(!displayModal)}} 
-                type="button" 
-                className="bg-yellow-500 hover:bg-yellow-600 px-10 py-6 font-bold text-black dark:text-gray-200 text-2xl my-10 rounded-full flex transition duration-500">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mr-2 my-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>New Entry</button>
-            </div>
-            <div className={displayModal ? 'block' : 'hidden'}>
+            <h1 className="text-3xl text-center font-bold text-black dark:text-white mt-10 mb-5 transition duration-500">{sleepArray.length !== 0 ? 'Your Sleep Entries' : "You haven't added any entries yet, you can add one by clicking the button above"}</h1>
+            <div className="grid grid-cols-none md:grid-cols-2 mt-12">
+                <div>
+                    <div className="flex justify-center">
+                        <button onClick={() => {setDisplayModal(!displayModal)}} 
+                        type="button" 
+                        className="bg-yellow-500 hover:bg-yellow-600 px-10 py-6 font-bold text-black dark:text-gray-200 text-2xl my-10 rounded-full flex transition duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mr-2 my-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>New Entry</button>
+                     </div>
+                     <div className={displayModal ? 'block' : 'hidden'}>
 
-                {/* Date Selection */}
-                <div className="p-10 lg:p-24 bg-gray-200 dark:bg-gray-700 transition duration-500 rounded w-min mx-auto">
-                    <div className="mx-auto text-center align-middle w-64">
-                    <div>
-                        <label htmlFor="date" className="font-bold text-black dark:text-white transition duration-500"> Select the date
-                        <TextField
-                            id="date"
-                            type="date"
-                            className="w-60"
-                            onChange={(event) => {setSleepDate(event.target.value)}}
-                            required
-                        />
-                        </label>
-                        <label htmlFor="asleepTime" className="font-bold text-black dark:text-white transition duration-500"> What time did you fall asleep?
-                        <TextField
-                            id="asleep"
-                            type="time"
-                            className="w-60"
-                            onChange={(event) => {setAsleepTime(event.target.value)}}
-                            required
-                        />
-                        </label>
-                        <label htmlFor="wakeupTime" className="font-bold text-black dark:text-white transition duration-500"> What time did you wake up?
-                        <TextField
-                            id="wakeup"
-                            type="time"
-                            className="w-60"
-                            onChange={(event) => {setWakeupTime(event.target.value)}}
-                            required
-                        />
-                        </label>
-                        <div className="flex">
-                            <button
-                            onClick={() => resetEntry()}
-                            className="font-bold bg-gray-300 dark:bg-gray-500 m-auto px-5 hover:bg-gray-400 dark:hover:bg-gray-600 py-2 rounded transition-all duration-300">Reset</button>
-                            <button
-                            onClick={() => addSleepEntry()}
-                            className="font-bold bg-yellow-400 m-auto px-4 hover:bg-yellow-500 py-2 rounded transition-all duration-300">Submit</button>
+                    {/* Date Selection */}
+                        <div className="p-10 lg:p-24 bg-gray-200 dark:bg-gray-700 transition duration-500 rounded w-min mx-auto">
+                            <div className="mx-auto text-center align-middle w-64">
+                                <div>
+                                    <label htmlFor="date" className="font-bold text-black dark:text-white transition duration-500"> Select the date
+                                    <TextField
+                                        id="date"
+                                        type="date"
+                                        className="w-60"
+                                        onChange={(event) => {setSleepDate(event.target.value)}}
+                                        required
+                                    />
+                                    </label>
+                                    <label htmlFor="asleepTime" className="font-bold text-black dark:text-white transition duration-500"> What time did you fall asleep?
+                                    <TextField
+                                        id="asleep"
+                                        type="time"
+                                        className="w-60"
+                                        onChange={(event) => {setAsleepTime(event.target.value)}}
+                                        required
+                                    />
+                                    </label>
+                                    <label htmlFor="wakeupTime" className="font-bold text-black dark:text-white transition duration-500"> What time did you wake up?
+                                    <TextField
+                                        id="wakeup"
+                                        type="time"
+                                        className="w-60"
+                                        onChange={(event) => {setWakeupTime(event.target.value)}}
+                                        required
+                                    />
+                                    </label>
+                                    <div className="flex">
+                                        <button
+                                        onClick={() => resetEntry()}
+                                        className="font-bold bg-gray-300 dark:bg-gray-500 m-auto px-5 hover:bg-gray-400 dark:hover:bg-gray-600 py-2 rounded transition-all duration-300">Reset</button>
+                                        <button
+                                        onClick={() => addSleepEntry()}
+                                        className="font-bold bg-yellow-400 m-auto px-4 hover:bg-yellow-500 py-2 rounded transition-all duration-300">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    </div>
                 </div>
-            </div>
-            <div className="mx-10 text-center">
-               <h1 className="text-3xl font-bold text-black dark:text-white my-5 transition duration-500">{sleepArray.length !== 0 ? 'Your Sleep Entries' : "You haven't added any entries yet, you can add one by clicking the button above"}</h1>
-                {sleepArray.map((entry) => (
-                    <div className="flex text-xs md:text-lg text-black dark:text-white justify-center bg-gray-200 dark:bg-yellow-600 w-full lg:w-1/2 py-2 my-3 mx-auto opacity-90 transition duration-500 rounded md:rounded-full overflow-auto" key={entry.id}>
+                <div className="mx-10 mt-8 text-center">
+                    {sleepArray.map((entry) => (
+                    <div className="flex text-xs md:text-lg text-black dark:text-white justify-center bg-gray-200 dark:bg-yellow-600 w-full py-2 my-3 mx-auto opacity-90 transition duration-500 rounded md:rounded-full overflow-auto" key={entry.id}>
                         <h1 className="mx-2 lg:mx-5 my-auto"><span className="font-bold">{entry.sleepDate}</span></h1>
                         <h1 className="mx-2 lg:mx-5">Asleep time: <span className="font-bold">{entry.asleepTime}</span></h1>
                         <h1 className="mx-2 lg:mx-5">Wakeup time: <span className="font-bold">{entry.wakeupTime}</span></h1>
@@ -211,8 +216,10 @@ export default function Homepage() {
                             </svg>
                         </span>
                     </div>
-                ))}
+                    ))}
+                </div>
             </div>
+            <Footer />
         </div>
     )
 }

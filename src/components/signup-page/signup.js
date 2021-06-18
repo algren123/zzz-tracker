@@ -3,6 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 import app from '../../firebase/base.js';
 import useDarkMode from '../../services/useDarkMode.js';
 import Navbar from '../navbar/navbar';
+import Footer from '../footer/footer.js';
 import './signup.scss';
 
 const Signup = ({ history }) => {
@@ -36,6 +37,7 @@ const Signup = ({ history }) => {
               </form>
             </div>
           </div>
+          <Footer />
         </div>
   );
 }

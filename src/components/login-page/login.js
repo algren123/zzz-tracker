@@ -4,6 +4,7 @@ import app from '../../firebase/base';
 import useDarkMode from '../../services/useDarkMode';
 import { AuthContext } from '../auth/auth';
 import Navbar from '../navbar/navbar';
+import Footer from '../footer/footer.js';
 import './login.scss';
 
 const Login = ({ history }) => {
@@ -44,6 +45,7 @@ const Login = ({ history }) => {
             </form>
             </div>
           </div>
+          <Footer />
         </div>
       );
 }

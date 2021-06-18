@@ -1,6 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
+import Footer from '../footer/footer.js';
 import '../../../node_modules/react-vis/dist/style.css';
 import { LineSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis, FlexibleXYPlot} from 'react-vis';
 import app from '../../firebase/base.js';
@@ -73,7 +74,7 @@ function Dashboard() {
 
     return (
         sleepArray.length > 0 ?
-        <div className="h-full pb-2 lg:h-screen splash-screen dark:splash-screen-dark transition duration-500">
+        <div className="h-full md:h-screen splash-screen dark:splash-screen-dark transition duration-500">
             <Navbar />
             <div className="text-center">
                 <h1 className="font-bold text-3xl lg:text-5xl my-8 text-black dark:text-white transition-all duration-500">Your Dashboard</h1>
@@ -104,10 +105,10 @@ function Dashboard() {
                     </div>
                 </div>
             </div>
-            
+            <Footer />
         </div>
         :
-        <div className="h-screen splash-screen dark:splash-screen-dark transition duration-500">
+        <div className="h-full md:h-screen splash-screen dark:splash-screen-dark transition duration-500">
             <Navbar />
             <div className="text-center">
                 <h1 className="font-bold text-3xl lg:text-5xl my-8 text-black dark:text-white transition-all duration-500">Your Dashboard</h1>
