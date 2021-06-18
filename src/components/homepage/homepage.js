@@ -146,8 +146,8 @@ export default function Homepage() {
     return (
         <div id="background" className={`bg-gray-100 dark:bg-gray-900 splash-screen dark:splash-screen-dark transition duration-500 ${!displayModal && sleepArray.length < 5 ? 'h-screen' : 'h-full'} md:h-screen`}>
             <Navbar />
-            <h1 className="text-3xl text-center font-bold text-black dark:text-white mt-10 mb-5 transition duration-500">{sleepArray.length !== 0 ? 'Your Sleep Entries' : "You haven't added any entries yet, you can add one by clicking the button above"}</h1>
-            <div className="grid grid-cols-none md:grid-cols-2 mt-12">
+            <h1 className="text-3xl text-center font-bold text-black dark:text-white mt-10 mb-5 transition duration-500">{sleepArray.length !== 0 ? 'Your Sleep Entries' : "You haven't added any entries yet, you can add one by clicking the button below"}</h1>
+            <div className={`${sleepArray.length < 1 ? '' : 'grid grid-cols-none md:grid-cols-2 mt-12'}`}>
                 <div>
                     <div className="flex justify-center">
                         <button onClick={() => {setDisplayModal(!displayModal)}} 
