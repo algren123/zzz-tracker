@@ -108,7 +108,7 @@ function Dashboard() {
             <Footer />
         </div>
         :
-        <div className="h-full md:h-screen splash-screen dark:splash-screen-dark transition duration-500">
+        <div className="h-screen splash-screen dark:splash-screen-dark transition duration-500">
             <Navbar />
             <div className="text-center">
                 <h1 className="font-bold text-3xl lg:text-5xl my-8 text-black dark:text-white transition-all duration-500">Your Dashboard</h1>
