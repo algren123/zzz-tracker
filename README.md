@@ -18,9 +18,9 @@ A CRD (the "U" wasn't needed in this app, but I commented the update code in the
 The web app is not finished yet, still needs more polishing and additional content/styling. This was done following a brief with some personal takes on some of the points (https://www.codementor.io/projects/web/daily-sleep-tracker-web-app-byi4kpk5rt)
 
 To be added:
- - Footer
- - About page with additional GSAP animations
- - Stats Dashboard rework
- - Responsive Dashboard page
+ - ~~Footer~~
+ - ~~About page with additional GSAP animations~~
+ - ~~Stats Dashboard rework~~
+ - ~~Responsive Dashboard page~~
  - Remember me & forgot password Authentication implementation
  - QoL changes
