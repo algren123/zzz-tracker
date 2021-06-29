@@ -36,7 +36,7 @@ function SplashScreen() {
 	}
 
     return(
-			<div id="background" className="h-screen transition-all duration-500 splash-screen dark:splash-screen-dark">
+			<div id="background" className="h-full md:h-screen transition-all duration-500 splash-screen dark:splash-screen-dark">
 				<Navbar />
 				<div 
 					className="jumbotron text-center py-44 lg:py-72 transition-all duration-500">

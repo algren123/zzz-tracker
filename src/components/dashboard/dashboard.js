@@ -79,7 +79,7 @@ function Dashboard() {
             <div className="text-center">
                 <h1 className="font-bold text-3xl lg:text-5xl my-8 text-black dark:text-white transition-all duration-500">Your Dashboard</h1>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 mx-10 my-12 lg:my-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 mx-10 my-12 md:my-0 lg:my-24 relative">
                 <div className="dashboard-container w-full lg:w-4/5 justify-center text-center my-5 mx-auto bg-gray-400 dark:bg-gray-700 text-black dark:text-white opacity-80 pb-16 pt-5 px-5 rounded-md transition-all duration-500">
                     <h1 className="text-3xl font-bold mb-3 text-black dark:text-yellow-500 transition-all duration-500">Graph</h1>
                     <FlexibleXYPlot className="mx-auto" xType="time" yDomain={[1, 12]} stroke="orange">
@@ -101,14 +101,14 @@ function Dashboard() {
                         <h1 className="text-xl font-bold my-5">Average sleep time: <br /> <span className="text-yellow-400 text-3xl">{averageSleepTime} Hours</span></h1>
                         <h1 className="text-xl font-bold my-5">Days with less than 6 hours sleep: <br /><span className="text-yellow-400 text-3xl">{less6Hours}</span></h1>
                         <h1 className="text-xl font-bold my-5">Days with more than 8 hours sleep: <br /><span className="text-yellow-400 text-3xl">{more8Hours}</span></h1>
-                        <h1 className="text-lg lg:text-3xl font-bold mt-10 mx-5">{averageSleepTime < 7 ? "You should sleep more. Healthy adults need between 7 and 9 hours of sleep" : averageSleepTime > 9 ? 'You sleep too much. Healthy adults need between 7 and 9 hours of sleep' : 'You are having the recommended amount of sleep. \n Keep it up!'}</h1>
+                        <h1 className="text-lg md:text-2xl lg:text-3xl font-bold mt-10 mx-5">{averageSleepTime < 7 ? "You should sleep more. Healthy adults need between 7 and 9 hours of sleep" : averageSleepTime > 9 ? 'You sleep too much. Healthy adults need between 7 and 9 hours of sleep' : 'You are having the recommended amount of sleep. \n Keep it up!'}</h1>
                     </div>
                 </div>
             </div>
             <Footer />
         </div>
         :
-        <div className="h-screen splash-screen dark:splash-screen-dark transition duration-500">
+        <div className="h-full md:h-screen splash-screen dark:splash-screen-dark transition duration-500">
             <Navbar />
             <div className="text-center">
                 <h1 className="font-bold text-3xl lg:text-5xl my-8 text-black dark:text-white transition-all duration-500">Your Dashboard</h1>
